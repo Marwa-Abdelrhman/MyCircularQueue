@@ -1,18 +1,18 @@
 # depslib dependency file v1.0
-1716931295 source:c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\main.c
+1716980718 source:c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\main.c
 	<stdio.h>
 	<stdlib.h>
 	"my_CircularQueue.h"
 	"Platform_Types.h"
 
-1716925969 c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\my_circularqueue.h
+1716983711 c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\my_circularqueue.h
 	"Platform_Types.h"
 
 1631476735 c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\platform_types.h
 
-1716931187 source:c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\my_circularqueue.c
+1716983894 source:c:\users\marwa abdelrahman\documents\codeblocks\my_circularqueue\my_circularqueue\my_circularqueue.c
+	<stdlib.h>
 	"my_CircularQueue.h"
-	"C:\mingw64\x86_64-w64-mingw32\include\stdlib.h"
 
 1716816225 c:\mingw64\x86_64-w64-mingw32\include\stdlib.h
 	<corecrt.h>

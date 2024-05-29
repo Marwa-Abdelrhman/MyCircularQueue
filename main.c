@@ -14,7 +14,7 @@ uint32 x=0;
 
 int main()
 {
-    uint32* rem_ele;
+    void* rem_ele;
     q1= Queue_init(&ret,s);
 
 

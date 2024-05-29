@@ -9,15 +9,15 @@
  *
  */
 
-//#include <stdlib.h>
+#include <stdlib.h>
 #include "my_CircularQueue.h"
-#include "C:\mingw64\x86_64-w64-mingw32\include\stdlib.h"
+//#include "C:\mingw64\x86_64-w64-mingw32\include\stdlib.h"
 
  /**
   *@brief  create queue object in heap memory
-  *@param  queue_obj pointer to the queue created
   *@param  my_size size of elements in the created queue
-  *@return check if queue is created with no errors
+  *@param  check if queue is created with no errors
+  *@return queue_obj pointer to the queue created
   */
 //Queue_status_t Queue_init(Queue_t *queue_obj,uint32 my_size)
 Queue_t * Queue_init(Queue_status_t *q_ret,uint32 my_size)
@@ -99,11 +99,12 @@ Queue_status_t Queue_enqueue_element(Queue_t *queue_obj,void *element)
         {
             (queue_obj->Q_rear)++;
 
+            /*circular queue operation*/
             if(queue_obj->Q_rear == queue_obj->Q_max_size)
             {
                 queue_obj->Q_rear=0;
             }
-            else{}
+            else{/*Nothing */}
 
             queue_obj->Q_array[queue_obj->Q_rear]=element;
 
@@ -165,19 +166,19 @@ Queue_status_t Queue_dequeue_element(Queue_t *queue_obj,void **element)
         {
             *element=queue_obj->Q_array[queue_obj->Q_front];
             (queue_obj->Q_front)++;
+
+            /*circular queue operation*/
             if(queue_obj->Q_front == queue_obj->Q_max_size)
             {
                 queue_obj->Q_front=0;
             }
-            else
-            {}
+            else{/*Nothing */}
             if(queue_obj->Q_elements_count == 1)
             {
                 queue_obj->Q_front=-1;
                 queue_obj->Q_rear=-1;
             }
-            else
-            {}
+            else{/*Nothing */}
            (queue_obj->Q_elements_count)--;
 
             q_ret=Q_OK;
@@ -185,7 +186,8 @@ Queue_status_t Queue_dequeue_element(Queue_t *queue_obj,void **element)
 
 
             #ifdef CIRCULAR_QUEUE_DEBUG_MODE
-            printf("value %i removed from the queue.\n",*(uint32 *)(queue_obj->Q_array[(queue_obj->Q_front)-1]));
+            //printf("value %i removed from the queue.\n",*(uint32 *)(queue_obj->Q_array[(queue_obj->Q_front)-1]));
+            printf("value %i removed from the queue.\n",**(uint32 **)(element));
             #endif // CIRCULAR_QUEUE_DEBUG_MODE*/
         }
 
@@ -197,8 +199,8 @@ Queue_status_t Queue_dequeue_element(Queue_t *queue_obj,void **element)
 /**
   *@brief  remove an element from front of the queue
   *@param  queue_obj pointer to the queue
-  *@param  element to be removed from front of the queue with any data type
-  *@return check if element is removed from front of the queue with no errors
+  *@param  check if element is removed from front of the queue with no errors
+  *@return element to be removed from front of the queue with any data type
   */
 void* Queue_front(Queue_t *queue_obj,Queue_status_t *q_ret)
 {
@@ -239,8 +241,8 @@ void* Queue_front(Queue_t *queue_obj,Queue_status_t *q_ret)
 /**
   *@brief  remove an element from rear of the queue
   *@param  queue_obj pointer to the queue
-  *@param  element to be removed from rear of the queue with any data type
-  *@return check if element is removed from rear of the queue with no errors
+  *@param  check if element is removed from rear of the queue with no errors
+  *@return element to be removed from rear of the queue with any data type
   */
 void* Queue_rear(Queue_t *queue_obj,Queue_status_t *q_ret)
 {
